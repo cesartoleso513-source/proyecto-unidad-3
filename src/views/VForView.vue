@@ -1,20 +1,21 @@
 <template>
-  <div>
-    <h2>Directiva v-for</h2>
+  <div class="space-y-6">
+    <h2 class="text-3xl font-bold text-yellow-600">Directiva v-for</h2>
 
-    <p>
-      La directiva <strong>v-for</strong> permite recorrer listas y renderizar elementos
-      dinámicamente.
-    </p>
+    <p class="text-gray-600">v-for permite renderizar listas dinámicamente.</p>
 
-    <ul>
-      <li v-for="(fruta, index) in frutas" :key="index">{{ index + 1 }} - {{ fruta }}</li>
+    <ul class="space-y-3">
+      <li
+        v-for="(fruta, index) in frutas"
+        :key="index"
+        class="bg-yellow-100 p-4 rounded-lg shadow hover:scale-105 transition"
+      >
+        {{ fruta }}
+      </li>
     </ul>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-
-const frutas = ref<string[]>(['Manzana', 'Pera', 'Naranja', 'Mango'])
+const frutas = ['Manzana', 'Plátano', 'Fresa', 'Uva']
 </script>

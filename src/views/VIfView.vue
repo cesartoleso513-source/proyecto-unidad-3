@@ -1,22 +1,23 @@
 <template>
-  <div>
-    <h2>Directiva v-if / v-else-if / v-else</h2>
+  <div class="space-y-6">
+    <h2 class="text-3xl font-bold text-blue-700">Directiva v-if</h2>
 
-    <p>
-      La directiva <strong>v-if</strong> permite renderizar contenido condicionalmente según el
-      valor de una expresión.
-    </p>
+    <p class="text-gray-600">v-if renderiza o elimina completamente el elemento del DOM.</p>
 
-    <input v-model="edad" type="number" placeholder="Ingresa tu edad" />
+    <button
+      @click="mostrar = !mostrar"
+      class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
+    >
+      {{ mostrar ? 'Ocultar mensaje' : 'Mostrar mensaje' }}
+    </button>
 
-    <p v-if="edad >= 18">Eres mayor de edad</p>
-    <p v-else-if="edad > 0">Eres menor de edad</p>
-    <p v-else>Ingresa una edad válida</p>
+    <div v-if="mostrar" class="p-6 bg-blue-100 rounded-xl shadow-lg border-l-4 border-blue-600">
+      Este mensaje existe en el DOM solo cuando la condición es verdadera.
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-
-const edad = ref<number>(0)
+const mostrar = ref(false)
 </script>
